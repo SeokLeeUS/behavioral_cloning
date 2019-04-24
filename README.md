@@ -139,19 +139,26 @@ The overall strategy for deriving a model architecture was to ...
 
 My first step was to use a convolution neural network model similar to [Nvidia paper](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf) 
 
-I thought this model might be appropriate as it's proven in the real world testing. 
+The reason why this model architecture was used is, it might be appropriate as it's proven in the real world testing. 
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
 ![overfitting][image8]
 
-To combat the overfitting, I modified the model so that ...
+To combat the overfitting, I modified the model so that "drop out" strategy was applied:
+```sh
+model.add(Dropout(0.2)) # overfitting
+```
+Then the overfitting was improved. 
 
-Then I ... 
+![after drop out][image7]
 
 The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+
+
+
 
 #### 2. Final Model Architecture
 
