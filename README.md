@@ -1,15 +1,13 @@
 # **Behavioral Cloning** 
 
-## Writeup Template
-
-### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
-
+## This project is to train model to steer the simulation vehicle to be on right track. input to the model measurement is steering angle. The vehicle images are collected alongside the steering angle turn.  
 ---
 
 **Behavioral Cloning Project**
 
 The goals / steps of this project are the following:
-* Use the simulator to collect data of good driving behavior
+* Use the simulator to collect data of good driving behavior (steering angle, image)
+* read data and pre-processing
 * Build, a convolution neural network in Keras that predicts steering angles from images
 * Train and validate the model with a training and validation set
 * Test that the model successfully drives around track one without leaving the road
@@ -38,7 +36,7 @@ My project includes the following files:
 * model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
-* writeup_report.md or writeup_report.pdf summarizing the results
+* README.md summarizing the results
 
 #### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
@@ -54,9 +52,42 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+My model consists of a convolution neural network with 5x5 filter sizes and depths between 24,36,48,64,64. 
+The model includes RELU layers to introduce nonlinearity.
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+```sh
+
+model.add(Conv2D(24,(5,5),strides=(2,2),activation="relu"))
+model.add(Conv2D(36,(5,5),strides=(2,2),activation="relu"))
+model.add(Conv2D(48,(5,5),strides=(2,2),activation="relu"))
+
+model.add(Conv2D(64,(3,3),activation="relu"))
+model.add(Conv2D(64,(3,3),activation="relu"))
+
+```
+
+The data is normalized in the model using a Keras lambda layer.
+
+```sh
+
+model.add(Lambda(lambda x: x/127.5 - 1.,
+        input_shape=(row, col, ch),
+        output_shape=(row, col, ch)))
+```
+
+CNN network uses flatten, then engage 3 fully engaged layers (100/50/10). 
+
+```sh
+
+model.add(Flatten())
+
+model.add(Dense(100))
+model.add(Dense(50))
+model.add(Dense(10))
+model.add(Dense(1))
+
+```
+
 
 #### 2. Attempts to reduce overfitting in the model
 
