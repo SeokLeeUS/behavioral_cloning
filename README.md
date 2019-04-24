@@ -33,7 +33,7 @@ The goals / steps of this project are the following:
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
-* model.py containing the script to create and train the model
+* model_r0.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
 * README.md summarizing the results
@@ -41,7 +41,7 @@ My project includes the following files:
 #### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
-python drive.py model.h5
+python drive.py model.h5 run2
 ```
 
 #### 3. Submission code is usable and readable
@@ -81,9 +81,16 @@ CNN network uses flatten, then engage 3 fully engaged layers (100/50/10).
 
 model.add(Flatten())
 
+
 model.add(Dense(100))
+
+model.add(Dropout(0.2)) # overfitting
 model.add(Dense(50))
+
+model.add(Dropout(0.2)) # overfitting
 model.add(Dense(10))
+
+model.add(Dropout(0.2)) # overfitting
 model.add(Dense(1))
 
 ```
@@ -97,8 +104,10 @@ The model was trained and validated on different data sets to ensure that the mo
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
-
+The model used an adam optimizer, so the learning rate was not tuned manually.
+```sh
+model.compile(loss='mse',optimizer='adam')
+```
 #### 4. Appropriate training data
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
