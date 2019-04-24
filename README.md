@@ -19,7 +19,7 @@ The goals / steps of this project are the following:
 [image1]: ./examples/placeholder.png "Model Visualization"
 [image2]: ./examples/placeholder.png "Grayscaling"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
+[image4]: ./examples/dropout_0_2_epoch_3.png "epoch_3"
 [image5]: ./examples/dropout_0_2_epoch_7.png "epoch_7"
 [image6]: ./examples/run2_center_ex1.jpg "center_lane_Driving"
 [image7]: ./examples/dropout_0_2_epoch_5.png "model mean squared error loss"
@@ -207,6 +207,9 @@ I used this training data for training the model. The validation set helped dete
 ```sh
 
 ```
+
+![after drop out epochs=3][image4]
+
 ![after drop out epochs=5][image7]
 
 ![after drop out epochs=7][image5]
