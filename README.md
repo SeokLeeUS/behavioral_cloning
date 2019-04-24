@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/dropout_0_2_epoch_7.png "epoch_7"
 [image6]: ./examples/run2_center_ex1.jpg "center_lane_Driving"
-[image7]: ./examples/dropout_0_2.png "model mean squared error loss"
+[image7]: ./examples/dropout_0_2_epoch_5.png "model mean squared error loss"
 [image8]: ./examples/overfitting_error1.png "overfitting"
 
 ## Rubric Points
