@@ -21,7 +21,7 @@ The goals / steps of this project are the following:
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
+[image6]: ./examples/run2_center_ex1.jpg "center_lane_Driving"
 [image7]: ./examples/dropout_0_2.png "model mean squared error loss"
 [image8]: ./examples/overfitting_error1.png "overfitting"
 
@@ -172,7 +172,7 @@ Here is a visualization of the architecture (note: visualizing the architecture 
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
-![alt text][image2]
+![centerlane_driving][image6]
 
 I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
 
