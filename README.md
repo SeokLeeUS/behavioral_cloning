@@ -242,7 +242,7 @@ train_samples, validation_samples = train_test_split(samples, test_size=0.2)
 
 ```
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by following experimental trials. I used an adam optimizer so that manually training the learning rate wasn't necessary.
 
 ```sh
 
@@ -253,4 +253,8 @@ I used this training data for training the model. The validation set helped dete
 ![after drop out epochs=5][image7]
 
 ![after drop out epochs=7][image5]
+
+Here is the final result of video record during autonomous mode driving:
+
+
 
