@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
+[image2]: ./examples/center_curve.jpg "curve"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/dropout_0_2_epoch_3.png "epoch_3"
 [image5]: ./examples/dropout_0_2_epoch_7.png "epoch_7"
@@ -127,7 +127,7 @@ model.compile(loss='mse',optimizer='adam')
 ```
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+Training data (combining both sample data given by Udacity and my own driving data set) was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road which is part of my own driving data set.  
 
 For details about how I created the training data, see the next section. 
 
@@ -162,11 +162,48 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture are shown here:
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+```sh
+model = Sequential()
+model.add(Lambda(lambda x: x/127.5 - 1.,
+        input_shape=(row, col, ch),
+        output_shape=(row, col, ch)))
+model.add(Cropping2D(cropping=((70,25),(0,0))))
+#model.add(BatchNormalization()) # overfitting
+model.add(Conv2D(24,(5,5),strides=(2,2),activation="relu"))
+#model.add(Conv2D(24,(5,5),strides=(2,2),activation="relu"))
+#model.add(BatchNormalization()) # overfitting
+model.add(Conv2D(36,(5,5),strides=(2,2),activation="relu"))
+#model.add(BatchNormalization()) # overfitting
+model.add(Conv2D(48,(5,5),strides=(2,2),activation="relu"))
+#model.add(BatchNormalization()) # overfitting
+model.add(Conv2D(64,(3,3),activation="relu"))
+model.add(Conv2D(64,(3,3),activation="relu"))
 
-![alt text][image1]
+model.add(Flatten())
+
+model.add(Dense(100))
+model.add(Dropout(0.2)) # overfitting
+model.add(Dense(50))
+model.add(Dropout(0.2)) # overfitting
+model.add(Dense(10))
+model.add(Dropout(0.2)) # overfitting
+model.add(Dense(1))
+#model.add(Dense(120))
+#model.add(Dense(84))
+#model.add(Dense(1))
+
+model.compile(loss='mse',optimizer='adam')
+#model.fit(X_train,y_train,validation_split = 0.2,shuffle=True,epochs = 2)
+history_object = model.fit_generator(train_generator, \
+            steps_per_epoch=math.ceil(len(train_samples)/batch_size), \
+            validation_data=validation_generator, \
+            validation_steps=math.ceil(len(validation_samples)/batch_size), \
+            epochs=5, verbose=1)          
+model.save('model.h5')
+
+```
 
 #### 3. Creation of the Training Set & Training Process
 
@@ -174,6 +211,7 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 ![centerlane_driving][image6]
 
+![centerlane_driving_curve][image2]
 
 
 Then I repeated this process on track two in order to get more data points.
