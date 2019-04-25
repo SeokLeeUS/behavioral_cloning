@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/placeholder.png "Model Visualization"
 [image2]: ./examples/center_curve.jpg "curve"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
+[image3]: ./examples/center_curve_left.jpg "curve_left"
 [image4]: ./examples/dropout_0_2_epoch_3.png "epoch_3"
 [image5]: ./examples/dropout_0_2_epoch_7.png "epoch_7"
 [image6]: ./examples/run2_center_ex1.jpg "center_lane_Driving"
@@ -212,6 +212,8 @@ To capture good driving behavior, I first recorded two laps on track one using c
 ![centerlane_driving][image6]
 
 ![centerlane_driving_curve][image2]
+
+![centerlane_driving_left_curve][image3]
 
 
 Then I repeated this process on track two in order to get more data points.
