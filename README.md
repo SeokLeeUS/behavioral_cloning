@@ -1,7 +1,6 @@
 ## Behavioral Cloning
 
-### - This project is to train model to steer the simulation vehicle to be on right track. input to the model measurement is steering angle. The vehicle images are collected alongside the steering angle turn.  
----
+- This project is to train model to steer the simulation vehicle to be on right track. input to the model measurement is steering angle. The vehicle images are collected alongside the steering angle turn.  
 
 ## Behavioral Cloning Project
 
