@@ -242,7 +242,9 @@ I used this training data for training the model. The validation set helped dete
 
 ![after drop out epochs=7][image5]
 
-Here is the final result of video record during autonomous mode driving:
-
-
+#### d. Here is the final result of video record during autonomous mode driving:
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/HdkFegM3sVc/0.jpg)](https://www.youtube.com/watch?v=HdkFegM3sVc "BehavioralCloning")
+#### e. Remark:
+
+- Could try different modeling architectural strategy. 
+- [things to try]: http://faroit.com/keras-docs/1.0.1/getting-started/sequential-model-guide/
