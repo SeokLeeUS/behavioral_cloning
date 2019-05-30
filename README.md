@@ -1,18 +1,18 @@
-# **Behavioral Cloning** 
+## Behavioral Cloning
 
-## This project is to train model to steer the simulation vehicle to be on right track. input to the model measurement is steering angle. The vehicle images are collected alongside the steering angle turn.  
+### - This project is to train model to steer the simulation vehicle to be on right track. input to the model measurement is steering angle. The vehicle images are collected alongside the steering angle turn.  
 ---
 
-**Behavioral Cloning Project**
+## Behavioral Cloning Project
 
 The goals / steps of this project are the following:
-* Use the simulator to collect data of good driving behavior (steering angle, image)
-* read data and pre-processing
-* Build, a convolution neural network in Keras that predicts steering angles from images
-* Train and validate the model with a training and validation set
-* Test that the model successfully drives around track one without leaving the road
-* Summarize the results with a written report
-
+- Use the simulator to collect data of good driving behavior (steering angle, image)
+- read data and pre-processing
+- Build, a convolution neural network in Keras that predicts steering angles from images
+- Train and validate the model with a training and validation set
+- Test that the model successfully drives around track one without leaving the road
+- Summarize the results with a written report
+- Things to consider: [rubric points](https://review.udacity.com/#!/rubrics/432/view) 
 
 [//]: # (Image References)
 
@@ -25,9 +25,6 @@ The goals / steps of this project are the following:
 [image7]: ./examples/dropout_0_2_epoch_5.png "model mean squared error loss"
 [image8]: ./examples/overfitting_error1.png "overfitting"
 
-## Things to consider
-### [rubric points](https://review.udacity.com/#!/rubrics/432/view) 
----
 ## Overview
 
 ### - Required files to run simulation:
