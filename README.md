@@ -247,4 +247,4 @@ I used this training data for training the model. The validation set helped dete
 #### e. Remark:
 
 - Could try different modeling architectural strategy. 
-- [things to try]: http://faroit.com/keras-docs/1.0.1/getting-started/sequential-model-guide/
+- [things to try]: (http://faroit.com/keras-docs/1.0.1/getting-started/sequential-model-guide/)
