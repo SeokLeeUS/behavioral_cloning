@@ -37,7 +37,7 @@ My project includes the following files:
 
 ### - How to run simulation
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
-```sh
+```python
 python drive.py model.h5 run4
 ```
 
@@ -53,7 +53,7 @@ The file shows the pipeline I used for training and validating the model as well
 My model consists of a convolution neural network with 5x5 filter sizes and depths between 24,36,48,64,64. 
 The model includes ReLU (Rectified Linear Unit) layers to introduce nonlinearity.
 
-```sh
+```python
 
 model.add(Conv2D(24,(5,5),strides=(2,2),activation="relu"))
 model.add(Conv2D(36,(5,5),strides=(2,2),activation="relu"))
@@ -66,7 +66,7 @@ model.add(Conv2D(64,(3,3),activation="relu"))
 
 The data is normalized in the model using a Keras lambda layer.
 
-```sh
+```python
 
 model.add(Lambda(lambda x: x/127.5 - 1.,
         input_shape=(row, col, ch),
@@ -75,7 +75,7 @@ model.add(Lambda(lambda x: x/127.5 - 1.,
 
 CNN network uses flatten, then engage 3 fully engaged layers (100/50/10). 
 
-```sh
+```python
 
 model.add(Flatten())
 
@@ -98,13 +98,13 @@ model.add(Dense(1))
 
 The model contains dropout layers in order to reduce overfitting.
 
-```sh
+```python
 model.add(Dropout(0.2)) # overfitting
 ```
 
 The model was trained and validated by different data sets to ensure that the model was not overfitting.
 
-```sh
+```python
 batch_size=32
 # compile and train the model using the generator function
 train_generator = generator(train_samples, batch_size=batch_size)
@@ -118,7 +118,7 @@ The model was tested by running it through the simulator. The passing criteria i
 #### c. Model parameter tuning
 
 The model used an adam optimizer, so the learning rate was not tuned manually.
-```sh
+```python
 model.compile(loss='mse',optimizer='adam')
 ```
 #### d. Appropriate training data
@@ -155,7 +155,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture are shown here:
 
-```sh
+```python
 model = Sequential()
 model.add(Lambda(lambda x: x/127.5 - 1.,
         input_shape=(row, col, ch),
@@ -211,7 +211,7 @@ Then I repeated this process on track two in order to get more data points.
 
 To augment the data sat, flipped images was used. For example, here is the code for flip image augmentation:
 
-```sh
+```python
             augmented_images,augmented_measurements = [],[]
             for image, measurement in zip(images,measurements):
                 augmented_images.append(image)
@@ -223,7 +223,7 @@ To augment the data sat, flipped images was used. For example, here is the code 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
-```sh
+```python
 
 from sklearn.model_selection import train_test_split
 train_samples, validation_samples = train_test_split(samples, test_size=0.2)
@@ -231,10 +231,6 @@ train_samples, validation_samples = train_test_split(samples, test_size=0.2)
 ```
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as evidenced by following experimental trials. I used an adam optimizer so that manually training the learning rate wasn't necessary.
-
-```sh
-
-```
 
 ![after drop out epochs=3][image4]
 
@@ -247,4 +243,4 @@ I used this training data for training the model. The validation set helped dete
 #### e. Remark:
 
 - Could try different modeling architectural strategy. 
-- [things to try]: (http://faroit.com/keras-docs/1.0.1/getting-started/sequential-model-guide/)
+- [things to try](http://faroit.com/keras-docs/1.0.1/getting-started/sequential-model-guide/)
