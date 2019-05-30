@@ -28,9 +28,9 @@ The goals / steps of this project are the following:
 ## Things to consider
 ### [rubric points](https://review.udacity.com/#!/rubrics/432/view) 
 ---
-### Overview
+## Overview
 
-#### 1. Required files to run simulation:
+### - Required files to run simulation:
 
 My project includes the following files:
 * model_r0.py containing the script to create and train the model
@@ -39,18 +39,18 @@ My project includes the following files:
 * README.md summarizing the results
 * run4.mp4 video clip on autonomous mode
 
-#### 2. How to run simulation
+### - How to run simulation
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
 python drive.py model.h5 run4
 ```
 
-#### 3. Code overview 
+### - Code overview 
 
 The model_r0.py file contains the code for training and saving the Convolution Neural Network (CNN). 
 The file shows the pipeline I used for training and validating the model as well as comments to explain how the code works.
 
-### 4. Model Architecture and Training Strategy
+### - Model Architecture and Training Strategy
 
 #### a. Model arhicture overview 
 
@@ -131,7 +131,7 @@ Training data (combining both sample data given by Udacity and my own driving da
 
 For details about how I created the training data, see the next section. 
 
-### Detailed overview
+### - Detailed overview
 
 #### a. Solution Design Approach
 
